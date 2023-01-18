@@ -1,3 +1,4 @@
+import mongoose from "mongoose";
 import ProductModel from "../models/ProductModel.js";
 
 export const getProduct = async (req, res) => {
@@ -20,4 +21,29 @@ export const createProduct = async (req, res) => {
   } catch (e) {
     res.status(400).json({ message: e.message });
   }
+};
+
+export const updateProduct = async (req, res) => {
+  const { id: _id } = req.params;
+  const product = req.body;
+  if (!mongoose.Types.ObjectId.isValid(id))
+    return res.status(404).send("No post with that id");
+
+  const updatedProduct = await ProductModel.findByIdAndUpdate(
+    id,
+    { ...product, id },
+    {
+      new: true,
+    }
+  );
+  res.status(201).json(updatedProduct);
+};
+
+export const deleteProduct = async (req, res) => {
+  const { id: _id } = req.params;
+  if (!mongoose.Types.ObjectId.isValid(id))
+    return res.status(404).send("No post with that id");
+
+  await ProductModel.findByIdAndRemove(id);
+  res.json({ message: "product deleted successfully!" });
 };

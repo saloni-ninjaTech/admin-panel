@@ -2,7 +2,9 @@ import express from "express";
 import bodyParser from "body-parser";
 import mongoose from "mongoose";
 import cors from "cors";
-import productsRoutes from "./routes/products.js";
+import productsRoutes from "./routes/productsRoutes.js";
+import usersRoutes from "./routes/usersRoutes.js";
+import categoriesRoutes from "./routes/categoriesRoutes.js";
 // set up app
 const app = express();
 
@@ -12,6 +14,9 @@ app.use(bodyParser.urlencoded({ limit: "30mb", extended: true }));
 
 // routes
 app.use("/products", productsRoutes);
+app.use("/users", usersRoutes);
+app.use("/categories", categoriesRoutes);
+
 // mongo connection url
 const CONNECTION_URL =
   "mongodb+srv://saloniNinja:saloniNinja123@cluster0.fkamxab.mongodb.net/?retryWrites=true&w=majority";
