@@ -1,8 +1,7 @@
 import React from "react";
 
 export default function Table({ tableData }) {
-  console.log("data:", tableData);
-  if (tableData.length === 0) <div>Data Loaded!</div>;
+  if (tableData.length === 0) <div>Data Not Loaded!</div>;
   return (
     <div className="card-body p-0">
       <table className="table">
@@ -11,7 +10,6 @@ export default function Table({ tableData }) {
             {tableData &&
               tableData.length > 0 &&
               Object.keys(tableData[0]).map((key) => {
-                console.log("key:", key);
                 if (key !== "_id" && key !== "__v")
                   return <th>{key.toUpperCase()}</th>;
               })}
@@ -38,7 +36,13 @@ export default function Table({ tableData }) {
               })}
 
               <td>
-                <button className="fa fa-trash"></button>
+                <button className="btn btn-success">
+                  <span className="fa fa-pen"></span>
+                </button>
+                &nbsp;
+                <button className="btn btn-danger">
+                  <span className="fa fa-trash"></span>
+                </button>
               </td>
             </tr>
           ))}
