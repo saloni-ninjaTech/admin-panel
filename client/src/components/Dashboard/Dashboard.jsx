@@ -1,12 +1,15 @@
 import React from "react";
 import { useEffect } from "react";
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { setDisplayDashboard } from "../../actions";
 import Breadcrumb from "../shared/Breadcrumb";
 import Table from "../shared/Table";
 
 export default function Dashboard() {
   const dispatch = useDispatch();
+
+  const { products } = useSelector((state) => state.productReducer);
+
   useEffect(() => dispatch(setDisplayDashboard(true)), [dispatch]);
   return (
     <div className="content-wrapper" style={{ marginLeft: "0px" }}>
@@ -26,7 +29,7 @@ export default function Dashboard() {
         </div>
         {/* /.container-fluid */}
       </div>
-      <Table />
+      <Table tableData={products} />
     </div>
   );
 }

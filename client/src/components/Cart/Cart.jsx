@@ -1,12 +1,22 @@
 import React, { useEffect } from "react";
-import { useDispatch } from "react-redux";
-import { setDisplayCart } from "../../actions";
+import { useDispatch, useSelector } from "react-redux";
+import { getCategories, setDisplayCart } from "../../actions";
 import Breadcrumb from "../shared/Breadcrumb";
 import Table from "../shared/Table";
 
 export default function Cart() {
+  const { categories, categoryLoaded } = useSelector(
+    (state) => state.categoryReducer
+  );
   const dispatch = useDispatch();
-  useEffect(() => dispatch(setDisplayCart(true)), [dispatch]);
+  useEffect(() => {
+    dispatch(setDisplayCart(true));
+    dispatch(getCategories());
+  }, [dispatch]);
+
+  console.log("categories:", categories);
+  if (!categoryLoaded) <div>Data not loaded!</div>;
+
   return (
     <div className="content-wrapper" style={{ marginLeft: "0px" }}>
       <div className="content-header">
@@ -25,7 +35,7 @@ export default function Cart() {
         </div>
         {/* /.container-fluid */}
       </div>
-      <Table />
+      <Table tableData={categories} />
     </div>
   );
 }
