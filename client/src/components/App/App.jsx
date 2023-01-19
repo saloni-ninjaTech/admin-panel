@@ -5,6 +5,8 @@ import { useDispatch } from "react-redux";
 import { getProducts } from "../../actions";
 import { useEffect } from "react";
 import { useSelector } from "react-redux";
+import { Route, Routes } from "react-router-dom";
+import Cart from "../Cart/Cart";
 
 function App() {
   const dispatch = useDispatch();
@@ -17,7 +19,10 @@ function App() {
   return (
     <div className="wrapper">
       <Header />
-      <Dashboard />
+      <Routes>
+        <Route path="/" element={<Dashboard />} />
+        <Route path="/cart" element={<Cart />} />
+      </Routes>
       <Footer />
     </div>
   );

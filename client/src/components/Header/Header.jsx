@@ -1,6 +1,7 @@
 import React from "react";
 
 import AdminLOGO from "../../_assets/img/AdminLTELogo.png";
+import { Link } from "react-router-dom";
 
 export default function Header() {
   return (
@@ -12,7 +13,7 @@ export default function Header() {
         {/* Left navbar links */}
         <ul className="navbar-nav">
           <li className="nav-item">
-            <a href="#" className="brand-link">
+            <Link to="/" className="brand-link">
               <img
                 src={AdminLOGO}
                 alt="AdminLTE Logo"
@@ -22,17 +23,17 @@ export default function Header() {
               <span className="brand-text font-weight-strong text-light">
                 Admin Panel
               </span>
-            </a>
+            </Link>
           </li>
           <li className="nav-item d-none d-sm-inline-block">
-            <a href="#" className="nav-link">
+            <Link to="/" className="nav-link">
               Home
-            </a>
+            </Link>
           </li>
           <li className="nav-item d-none d-sm-inline-block">
-            <a href="#" className="nav-link">
+            <Link to="/cart" className="nav-link">
               Cart
-            </a>
+            </Link>
           </li>
         </ul>
         {/* Right navbar links */}
