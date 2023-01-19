@@ -7,10 +7,11 @@ import { useEffect } from "react";
 import { useSelector } from "react-redux";
 import { Route, Routes } from "react-router-dom";
 import Cart from "../Cart/Cart";
+import Profile from "../Profile/Profile";
 
 function App() {
   const dispatch = useDispatch();
-  const { products } = useSelector((state) => state);
+  const { products } = useSelector((state) => state.productReducer);
   useEffect(() => {
     dispatch(getProducts());
   }, [dispatch]);
@@ -22,6 +23,7 @@ function App() {
       <Routes>
         <Route path="/" element={<Dashboard />} />
         <Route path="/cart" element={<Cart />} />
+        <Route path="/profile" element={<Profile />} />
       </Routes>
       <Footer />
     </div>

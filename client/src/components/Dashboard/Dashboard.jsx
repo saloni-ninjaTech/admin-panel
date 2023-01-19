@@ -1,7 +1,13 @@
 import React from "react";
+import { useEffect } from "react";
+import { useDispatch } from "react-redux";
+import { setDisplayDashboard } from "../../actions";
+import Breadcrumb from "../shared/Breadcrumb";
 import Table from "../shared/Table";
 
 export default function Dashboard() {
+  const dispatch = useDispatch();
+  useEffect(() => dispatch(setDisplayDashboard(true)), [dispatch]);
   return (
     <div className="content-wrapper" style={{ marginLeft: "0px" }}>
       <div className="content-header">
@@ -12,12 +18,7 @@ export default function Dashboard() {
             </div>
             {/* /.col */}
             <div className="col-sm-6">
-              <ol className="breadcrumb float-sm-right">
-                <li className="breadcrumb-item">
-                  <a href="#">Home</a>
-                </li>
-                <li className="breadcrumb-item active">Dashboard</li>
-              </ol>
+              <Breadcrumb />
             </div>
             {/* /.col */}
           </div>

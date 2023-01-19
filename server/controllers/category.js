@@ -24,7 +24,7 @@ export const createCategory = async (req, res) => {
 };
 
 export const updateCategory = async (req, res) => {
-  const { id: _id } = req.params;
+  const { id: id } = req.params;
   const category = req.body;
   if (!mongoose.Types.ObjectId.isValid(id))
     return res.status(404).send("No category with that id");

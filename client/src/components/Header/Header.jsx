@@ -40,9 +40,9 @@ export default function Header() {
         <ul className="navbar-nav ml-auto">
           {/* Notifications Dropdown Menu */}
           <li className="nav-item dropdown">
-            <a className="nav-link" data-toggle="dropdown" href="#">
+            <Link className="nav-link" data-toggle="dropdown" to="/profile">
               <i className="far fa-user" />
-            </a>
+            </Link>
           </li>
         </ul>
       </nav>
