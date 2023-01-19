@@ -1,8 +1,9 @@
 import React from "react";
+import Table from "./Table";
 
 export default function Dashboard() {
   return (
-    <div className="content-wrapper" style={{ "margin-left": "0px" }}>
+    <div className="content-wrapper" style={{ marginLeft: "0px" }}>
       {/* Content Header (Page header) */}
       <div className="content-header">
         <div className="container-fluid">
@@ -26,6 +27,8 @@ export default function Dashboard() {
         {/* /.container-fluid */}
       </div>
       {/* /.content-header */}
+      {/* Table view */}
+      <Table />
     </div>
   );
 }

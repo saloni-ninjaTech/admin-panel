@@ -5,7 +5,10 @@ import AdminLOGO from "../../_assets/img/AdminLTELogo.png";
 export default function Header() {
   return (
     <div>
-      <nav className="navbar navbar-expand navbar-white navbar-light">
+      <nav
+        className="main-header navbar navbar-expand navbar-dark"
+        style={{ marginLeft: "unset" }}
+      >
         {/* Left navbar links */}
         <ul className="navbar-nav">
           <li className="nav-item">
@@ -16,7 +19,9 @@ export default function Header() {
                 className="brand-image img-circle elevation-3"
                 style={{ opacity: ".8" }}
               />
-              <span className="brand-text font-weight-strong">Admin Panel</span>
+              <span className="brand-text font-weight-strong text-light">
+                Admin Panel
+              </span>
             </a>
           </li>
           <li className="nav-item d-none d-sm-inline-block">
@@ -26,7 +31,7 @@ export default function Header() {
           </li>
           <li className="nav-item d-none d-sm-inline-block">
             <a href="#" className="nav-link">
-              Contact
+              Cart
             </a>
           </li>
         </ul>
