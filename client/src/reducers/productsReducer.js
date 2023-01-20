@@ -6,7 +6,9 @@ const productReducer = (state = defaultState, action) => {
     case constants.FETCH_PRODUCTS:
       return { ...state, products: action.payload };
     case constants.CREATE_PRODUCTS:
-      return { ...state, products: action.payload };
+      console.log("reducer");
+
+      return { ...state, products: [...state.products, action.payload] };
 
     case constants.UPDATE_PRODUCTS:
       return { ...state, products: action.payload };

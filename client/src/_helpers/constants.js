@@ -14,5 +14,27 @@ export const UPDATE_CATEGORIES = "UPDATE_CATEGORIES";
 export const DELETE_CATEGORIES = "DELETE_CATEGORIES";
 
 export const DISPLAY_DASHBOARD = "DISPLAY_DASHBOARD";
-export const DISPLAY_CART = "DISPLAY_CART";
+export const DISPLAY_CATEGORIES = "DISPLAY_CATEGORIES";
 export const DISPLAY_PROFILE = "DISPLAY_PROFILE";
+
+export const DEFAULT_VALUES_PRODUCT_FORM = {
+  name: "",
+  image: "",
+  cat_id: "",
+  description: "",
+  price: "",
+};
+
+export const DEFAULT_VALUES_CATEGORY_FORM = {
+  cat_id: "",
+  name: "",
+  isChild: false,
+  parentId: "",
+};
+
+export const DEFAULT_VALUES_USER_FORM = {
+  name: "",
+  email: "",
+  phone: "",
+  password: "",
+};

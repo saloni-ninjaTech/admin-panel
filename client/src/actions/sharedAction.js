@@ -9,9 +9,9 @@ export const setDisplayDashboard = (isDisplay) => (dispatch) => {
   }
 };
 
-export const setDisplayCart = (isDisplay) => (dispatch) => {
+export const setDisplayCategories = (isDisplay) => (dispatch) => {
   try {
-    dispatch({ type: constants.DISPLAY_CART, payload: isDisplay });
+    dispatch({ type: constants.DISPLAY_CATEGORIES, payload: isDisplay });
   } catch (error) {
     console.log("error:", error);
   }

@@ -40,7 +40,8 @@ export const updateCategory = async (req, res) => {
 };
 
 export const deleteCategory = async (req, res) => {
-  const { id: _id } = req.params;
+  const { id: id } = req.params;
+  console.log("id:", id);
   if (!mongoose.Types.ObjectId.isValid(id))
     return res.status(404).send("No category with that id");
 

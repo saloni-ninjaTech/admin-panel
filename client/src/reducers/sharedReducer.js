@@ -7,13 +7,13 @@ const sharedReducer = (state = defaultState, action) => {
       return {
         ...state,
         displayDashboard: action.payload,
-        displayCart: false,
+        displayCategories: false,
         displayProfile: false,
       };
-    case constants.DISPLAY_CART:
+    case constants.DISPLAY_CATEGORIES:
       return {
         ...state,
-        displayCart: action.payload,
+        displayCategories: action.payload,
         displayDashboard: false,
         displayProfile: false,
       };
@@ -22,7 +22,7 @@ const sharedReducer = (state = defaultState, action) => {
         ...state,
         displayProfile: action.payload,
         displayDashboard: false,
-        displayCart: false,
+        displayCategories: false,
       };
     default:
       return state;

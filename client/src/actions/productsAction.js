@@ -12,6 +12,8 @@ export const getProducts = () => async (dispatch) => {
 };
 
 export const createProducts = (input) => async (dispatch) => {
+  console.log("action");
+
   try {
     const { data } = await API.createProducts(input);
     dispatch({ type: constants.CREATE_PRODUCTS, payload: data });
@@ -32,7 +34,9 @@ export const updateProducts = (id, input) => async (dispatch) => {
 export const deleteProducts = (id) => async (dispatch) => {
   try {
     const { data } = await API.deleteProducts(id);
-    dispatch({ type: constants.DELETE_PRODUCTS, payload: data });
+    alert(data);
+    getProducts();
+    // dispatch({ type: constants.DELETE_PRODUCTS, payload: data });
   } catch (error) {
     console.log("error:", error);
   }

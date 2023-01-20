@@ -3,7 +3,7 @@ import { useSelector } from "react-redux";
 import { Link } from "react-router-dom";
 
 export default function Breadcrumb() {
-  const { displayDashboard, displayCart, displayProfile } = useSelector(
+  const { displayDashboard, displayCategories, displayProfile } = useSelector(
     (state) => state.sharedReducer
   );
 
@@ -16,7 +16,9 @@ export default function Breadcrumb() {
       {displayDashboard && (
         <li className="breadcrumb-item active">Dashboard</li>
       )}
-      {displayCart && <li className="breadcrumb-item active">Cart</li>}
+      {displayCategories && (
+        <li className="breadcrumb-item active">Categories</li>
+      )}
       {displayProfile && <li className="breadcrumb-item active">Profile</li>}
     </ol>
   );

@@ -31,8 +31,8 @@ export default function Header() {
             </Link>
           </li>
           <li className="nav-item d-none d-sm-inline-block">
-            <Link to="/cart" className="nav-link">
-              Cart
+            <Link to="/categories" className="nav-link">
+              Categories
             </Link>
           </li>
         </ul>

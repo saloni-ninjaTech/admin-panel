@@ -3,7 +3,7 @@ const defaultState = {
   users: [],
   categories: [],
   displayDashboard: true, // by default home page will be shown
-  displayCart: false,
+  displayCategories: false,
   displayProfile: false,
   productLoaded: false,
   categoryLoaded: false,

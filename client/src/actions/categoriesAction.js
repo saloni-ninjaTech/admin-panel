@@ -32,7 +32,8 @@ export const updateCategories = (id, input) => async (dispatch) => {
 export const deleteCategories = (id) => async (dispatch) => {
   try {
     const { data } = await API.deleteCategories(id);
-    dispatch({ type: constants.DELETE_CATEGORIES, payload: data });
+    alert(data);
+    getCategories();
   } catch (error) {
     console.log("error:", error);
   }

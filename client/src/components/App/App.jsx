@@ -6,8 +6,8 @@ import { getProducts } from "../../actions";
 import { useEffect } from "react";
 import { useSelector } from "react-redux";
 import { Route, Routes } from "react-router-dom";
-import Cart from "../Cart/Cart";
 import Profile from "../Profile/Profile";
+import Categories from "../Categories/Categories";
 
 function App() {
   const dispatch = useDispatch();
@@ -22,7 +22,7 @@ function App() {
       <Header />
       <Routes>
         <Route path="/" element={<Dashboard />} />
-        <Route path="/cart" element={<Cart />} />
+        <Route path="/categories" element={<Categories />} />
         <Route path="/profile" element={<Profile />} />
       </Routes>
       <Footer />
