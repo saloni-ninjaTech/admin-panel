@@ -9,6 +9,7 @@ const sharedReducer = (state = defaultState, action) => {
         displayDashboard: action.payload,
         displayCategories: false,
         displayProfile: false,
+        displayUser: false,
       };
     case constants.DISPLAY_CATEGORIES:
       return {
@@ -16,6 +17,7 @@ const sharedReducer = (state = defaultState, action) => {
         displayCategories: action.payload,
         displayDashboard: false,
         displayProfile: false,
+        displayUser: false,
       };
     case constants.DISPLAY_PROFILE:
       return {
@@ -23,6 +25,15 @@ const sharedReducer = (state = defaultState, action) => {
         displayProfile: action.payload,
         displayDashboard: false,
         displayCategories: false,
+        displayUser: false,
+      };
+    case constants.DISPLAY_USER:
+      return {
+        ...state,
+        displayUser: action.payload,
+        displayDashboard: false,
+        displayCategories: false,
+        displayProfile: false,
       };
     default:
       return state;

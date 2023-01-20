@@ -3,9 +3,8 @@ import { useSelector } from "react-redux";
 import { Link } from "react-router-dom";
 
 export default function Breadcrumb() {
-  const { displayDashboard, displayCategories, displayProfile } = useSelector(
-    (state) => state.sharedReducer
-  );
+  const { displayDashboard, displayCategories, displayProfile, displayUser } =
+    useSelector((state) => state.sharedReducer);
 
   return (
     <ol className="breadcrumb float-sm-right">
@@ -20,6 +19,7 @@ export default function Breadcrumb() {
         <li className="breadcrumb-item active">Categories</li>
       )}
       {displayProfile && <li className="breadcrumb-item active">Profile</li>}
+      {displayUser && <li className="breadcrumb-item active">User</li>}
     </ol>
   );
 }

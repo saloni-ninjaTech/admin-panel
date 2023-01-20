@@ -19,7 +19,7 @@ export default function Categories() {
   useEffect(() => {
     dispatch(setDisplayCategories(true));
     dispatch(getCategories());
-  }, [dispatch]);
+  }, [dispatch, categories]);
 
   const bindCreateData = bindActionCreators(createCategories, dispatch);
   console.log("categories:", categories);

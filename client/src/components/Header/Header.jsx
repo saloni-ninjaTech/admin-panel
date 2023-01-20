@@ -35,6 +35,11 @@ export default function Header() {
               Categories
             </Link>
           </li>
+          <li className="nav-item d-none d-sm-inline-block">
+            <Link to="/user" className="nav-link">
+              Users
+            </Link>
+          </li>
         </ul>
         {/* Right navbar links */}
         <ul className="navbar-nav ml-auto">

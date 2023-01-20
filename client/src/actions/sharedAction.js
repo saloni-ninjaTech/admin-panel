@@ -24,3 +24,11 @@ export const setDisplayProfile = (isDisplay) => (dispatch) => {
     console.log("error:", error);
   }
 };
+
+export const setDisplayUser = (isDisplay) => (dispatch) => {
+  try {
+    dispatch({ type: constants.DISPLAY_USER, payload: isDisplay });
+  } catch (error) {
+    console.log("error:", error);
+  }
+};

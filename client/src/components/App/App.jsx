@@ -8,6 +8,7 @@ import { useSelector } from "react-redux";
 import { Route, Routes } from "react-router-dom";
 import Profile from "../Profile/Profile";
 import Categories from "../Categories/Categories";
+import User from "../User/User";
 
 function App() {
   const dispatch = useDispatch();
@@ -24,6 +25,7 @@ function App() {
         <Route path="/" element={<Dashboard />} />
         <Route path="/categories" element={<Categories />} />
         <Route path="/profile" element={<Profile />} />
+        <Route path="/user" element={<User />} />
       </Routes>
       <Footer />
     </div>
