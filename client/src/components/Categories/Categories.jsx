@@ -6,6 +6,7 @@ import {
   deleteCategories,
   getCategories,
   setDisplayCategories,
+  updateCategories,
 } from "../../actions";
 import { DEFAULT_VALUES_CATEGORY_FORM } from "../../_helpers/constants";
 import Breadcrumb from "../shared/Breadcrumb";
@@ -19,7 +20,7 @@ export default function Categories() {
   useEffect(() => {
     dispatch(setDisplayCategories(true));
     dispatch(getCategories());
-  }, [dispatch, categories]);
+  }, [dispatch]);
 
   const bindCreateData = bindActionCreators(createCategories, dispatch);
   console.log("categories:", categories);
@@ -48,6 +49,7 @@ export default function Categories() {
         defaultValues={DEFAULT_VALUES_CATEGORY_FORM}
         createData={bindCreateData}
         deleteData={deleteCategories}
+        updateData={updateCategories}
       />
     </div>
   );

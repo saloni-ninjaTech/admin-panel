@@ -2,7 +2,7 @@ import React from "react";
 import { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { setDisplayUser } from "../../actions/sharedAction";
-import { getUsers } from "../../actions/usersAction";
+import { getUsers, updateUsers } from "../../actions/usersAction";
 import { createUsers, deleteUsers } from "../../api";
 import { DEFAULT_VALUES_USER_FORM } from "../../_helpers/constants";
 import Breadcrumb from "../shared/Breadcrumb";
@@ -14,9 +14,10 @@ export default function User() {
   const { users } = useSelector((state) => state.userReducer);
 
   useEffect(() => {
+    console.log("useeffects");
     dispatch(getUsers());
     dispatch(setDisplayUser(true));
-  }, [dispatch, users]);
+  }, [dispatch]);
 
   return (
     <div className="content-wrapper" style={{ marginLeft: "0px" }}>
@@ -41,6 +42,7 @@ export default function User() {
         defaultValues={DEFAULT_VALUES_USER_FORM}
         createData={createUsers}
         deleteData={deleteUsers}
+        updateData={updateUsers}
       />
     </div>
   );

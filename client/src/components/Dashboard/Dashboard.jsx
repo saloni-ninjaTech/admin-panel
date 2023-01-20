@@ -6,6 +6,7 @@ import {
   deleteProducts,
   getProducts,
   setDisplayDashboard,
+  updateProducts,
 } from "../../actions";
 import { DEFAULT_VALUES_PRODUCT_FORM } from "../../_helpers/constants";
 import Breadcrumb from "../shared/Breadcrumb";
@@ -19,7 +20,7 @@ export default function Dashboard() {
   useEffect(() => {
     dispatch(getProducts());
     dispatch(setDisplayDashboard(true));
-  }, [dispatch, products]);
+  }, [dispatch]);
 
   return (
     <div className="content-wrapper" style={{ marginLeft: "0px" }}>
@@ -44,6 +45,7 @@ export default function Dashboard() {
         defaultValues={DEFAULT_VALUES_PRODUCT_FORM}
         createData={createProducts}
         deleteData={deleteProducts}
+        updateData={updateProducts}
       />
     </div>
   );

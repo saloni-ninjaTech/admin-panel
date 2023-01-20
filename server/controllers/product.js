@@ -24,7 +24,7 @@ export const createProduct = async (req, res) => {
 };
 
 export const updateProduct = async (req, res) => {
-  const { id: _id } = req.params;
+  const { id: id } = req.params;
   const product = req.body;
   if (!mongoose.Types.ObjectId.isValid(id))
     return res.status(404).send("No post with that id");
@@ -40,7 +40,7 @@ export const updateProduct = async (req, res) => {
 };
 
 export const deleteProduct = async (req, res) => {
-  const { id } = req.params;
+  const { id: id } = req.params;
   if (!mongoose.Types.ObjectId.isValid(id))
     return res.status(404).send("No post with that id");
 

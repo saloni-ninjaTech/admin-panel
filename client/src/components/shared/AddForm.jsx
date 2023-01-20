@@ -1,18 +1,22 @@
 import React from "react";
 import { withFormik } from "formik";
 
-let initialValues = {};
-
 const AddForm = (props) => {
-  const { defaultValues, handleSubmit, handleChange, values, setShowForm } =
-    props;
-
-  initialValues = defaultValues;
+  const {
+    defaultValues,
+    handleSubmit,
+    handleChange,
+    values,
+    setShowForm,
+    isUpdate,
+  } = props;
 
   return (
     <div className="card card-primary">
       <div className="card-header">
-        <h3 className="card-title">Create New</h3>
+        <h3 className="card-title">
+          {isUpdate ? "Update Record" : "Create New"}
+        </h3>
       </div>
       <form
         onSubmit={(e) => {
@@ -22,24 +26,27 @@ const AddForm = (props) => {
         }}
       >
         <div className="card-body">
-          {Object.keys(defaultValues).map((key) => (
-            <div className="form-group">
-              <label htmlFor={key}>{key.toUpperCase()}</label>
-              <input
-                type="text"
-                className="form-control"
-                id={key}
-                name={key}
-                onChange={handleChange}
-                value={values[key]}
-                placeholder={`Enter ${key} here...`}
-              />
-            </div>
-          ))}
+          {Object.keys(defaultValues).map((key) => {
+            if (key !== "_id" && key !== "__v")
+              return (
+                <div className="form-group" key={key}>
+                  <label htmlFor={key}>{key.toUpperCase()}</label>
+                  <input
+                    type="text"
+                    className="form-control"
+                    id={key}
+                    name={key}
+                    onChange={handleChange}
+                    value={values[key]}
+                    placeholder={`Enter ${key} here...`}
+                  />
+                </div>
+              );
+          })}
         </div>
         <div className="card-footer">
-          <button type="submit" className="btn btn-primary">
-            Submit
+          <button type="submit" className="btn btn-success">
+            {isUpdate ? "Update" : "Submit"}
           </button>
         </div>
       </form>
@@ -48,7 +55,7 @@ const AddForm = (props) => {
 };
 
 export default withFormik({
-  mapPropsToValues: () => initialValues,
+  mapPropsToValues: ({ defaultValues }) => defaultValues,
 
   // // Custom sync validation
   // validate: values => {
@@ -62,10 +69,11 @@ export default withFormik({
   // },
 
   handleSubmit: (values, { props }) => {
-    const { createData } = props;
+    const { createData, isUpdate, updateData } = props;
     console.log("handle submit", createData, values);
-    createData(values);
+    isUpdate ? updateData(values._id, values) : createData(values);
+    window.location.reload(true);
   },
   enableReinitialize: true,
-  displayName: "Create New",
+  displayName: "Form",
 })(AddForm);
