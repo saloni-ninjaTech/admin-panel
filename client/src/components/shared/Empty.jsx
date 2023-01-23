@@ -12,7 +12,9 @@ export const Empty = ({ setShowForm, showButton }) => {
                   className="fas fa-exclamation-triangle text-warning"
                   style={{ fontSize: "50px" }}
                 ></i>
-                Oops! No Data Available!
+                {showButton
+                  ? "Oops! No Data Available!"
+                  : "404! Page Not Available"}
               </h3>
             </div>
             <br />
