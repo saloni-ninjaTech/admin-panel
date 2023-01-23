@@ -3,6 +3,7 @@ import { useState } from "react";
 import { useDispatch } from "react-redux";
 import { bindActionCreators } from "redux";
 import AddForm from "./AddForm";
+import { Empty } from "./Empty";
 
 export default function Table({
   tableData,
@@ -11,7 +12,6 @@ export default function Table({
   deleteData,
   updateData,
 }) {
-  if (tableData.length === 0) <div>Data Not Loaded!</div>;
   const [showForm, setShowForm] = useState(false);
   const [isUpdate, setIsUpdate] = useState(false);
   const [selectedItem, setSelectedItem] = useState({});
@@ -25,7 +25,9 @@ export default function Table({
     setIsUpdate(true);
     setShowForm(true);
   };
-
+  if (tableData.length === 0 && showForm === false) {
+    return <Empty setShowForm={setShowForm} />;
+  }
   return (
     <>
       {showForm ? (
