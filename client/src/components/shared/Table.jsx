@@ -26,7 +26,7 @@ export default function Table({
     setShowForm(true);
   };
   if (tableData.length === 0 && showForm === false) {
-    return <Empty setShowForm={setShowForm} />;
+    return <Empty setShowForm={setShowForm} showButton />;
   }
   return (
     <>

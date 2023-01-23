@@ -9,6 +9,7 @@ import { Route, Routes } from "react-router-dom";
 import Profile from "../Profile/Profile";
 import Categories from "../Categories/Categories";
 import User from "../User/User";
+import { Empty } from "../shared/Empty";
 
 function App() {
   const dispatch = useDispatch();
@@ -26,6 +27,7 @@ function App() {
         <Route path="/categories" element={<Categories />} />
         <Route path="/profile" element={<Profile />} />
         <Route path="/user" element={<User />} />
+        <Route path="*" element={<Empty />} />
       </Routes>
       <Footer />
     </div>
