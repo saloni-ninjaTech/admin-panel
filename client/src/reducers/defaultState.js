@@ -9,6 +9,7 @@ const defaultState = {
   productLoaded: false,
   categoryLoaded: false,
   userLoaded: false,
+  authData: null,
 };
 
 export default defaultState;

@@ -1,22 +1,29 @@
 import axios from "axios";
 
-const url = "http://localhost:5000";
+const API = axios.create({ baseURL: "http://localhost:5000" });
 
-export const fetchProducts = () => axios.get(`${url}/products`);
-export const createProducts = (input) => axios.post(`${url}/products`, input);
-export const updateProducts = (id, input) =>
-  axios.put(`${url}/products/${id}`, input);
-export const deleteProducts = (id) => axios.delete(`${url}/products/${id}`);
+// API.interceptors.request.use((req) => {
+//   if (localStorage.getItem("profile")) {
+//     req.headers.authorization = `Bearer ${JSON.parse(localStorage.getItem('profile')).token}`
+//   }
+//   return req;
+// })
 
-export const fetchUsers = () => axios.get(`${url}/users`);
-export const createUsers = (input) => axios.post(`${url}/users`, input);
-export const updateUsers = (id, input) =>
-  axios.put(`${url}/users/${id}`, input);
-export const deleteUsers = (id) => axios.delete(`${url}/users/${id}`);
+export const fetchProducts = () => API.get(`/products`);
+export const createProducts = (input) => API.post(`/products`, input);
+export const updateProducts = (id, input) => API.put(`/products/${id}`, input);
+export const deleteProducts = (id) => API.delete(`/products/${id}`);
 
-export const fetchCategories = () => axios.get(`${url}/categories`);
-export const createCategories = (input) =>
-  axios.post(`${url}/categories`, input);
+export const fetchUsers = () => API.get(`/users`);
+export const createUsers = (input) => API.post(`/users`, input);
+export const updateUsers = (id, input) => API.put(`/users/${id}`, input);
+export const deleteUsers = (id) => API.delete(`/users/${id}`);
+
+export const fetchCategories = () => API.get(`/categories`);
+export const createCategories = (input) => API.post(`/categories`, input);
 export const updateCategories = (id, input) =>
-  axios.put(`${url}/categories/${id}`, input);
-export const deleteCategories = (id) => axios.delete(`${url}/categories/${id}`);
+  API.put(`/categories/${id}`, input);
+export const deleteCategories = (id) => API.delete(`/categories/${id}`);
+
+export const signIn = (input) => API.post("/users/signin", input);
+export const signUp = (input) => API.post("/users/signup", input);

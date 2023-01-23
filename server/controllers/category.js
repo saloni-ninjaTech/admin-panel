@@ -14,6 +14,7 @@ export const getCategory = async (req, res) => {
 export const createCategory = async (req, res) => {
   const category = req.body;
   const newCategory = new CategoryModel(category);
+  if (!req.userId) return res.json({ message: "Unauthenticated" });
 
   try {
     await newCategory.save();
@@ -26,6 +27,8 @@ export const createCategory = async (req, res) => {
 export const updateCategory = async (req, res) => {
   const { id: id } = req.params;
   const category = req.body;
+  if (!req.userId) return res.json({ message: "Unauthenticated" });
+
   if (!mongoose.Types.ObjectId.isValid(id))
     return res.status(404).send("No category with that id");
 
@@ -42,6 +45,8 @@ export const updateCategory = async (req, res) => {
 export const deleteCategory = async (req, res) => {
   const { id: id } = req.params;
   console.log("id:", id);
+  if (!req.userId) return res.json({ message: "Unauthenticated" });
+
   if (!mongoose.Types.ObjectId.isValid(id))
     return res.status(404).send("No category with that id");
 

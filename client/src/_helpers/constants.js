@@ -18,6 +18,9 @@ export const DISPLAY_CATEGORIES = "DISPLAY_CATEGORIES";
 export const DISPLAY_PROFILE = "DISPLAY_PROFILE";
 export const DISPLAY_USER = "DISPLAY_USER";
 
+export const AUTH = "AUTH";
+export const LOGOUT = "LOGOUT";
+
 export const DEFAULT_VALUES_PRODUCT_FORM = {
   name: "",
   image: "",

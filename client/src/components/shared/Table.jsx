@@ -54,7 +54,7 @@ export default function Table({
                   {tableData &&
                     tableData.length > 0 &&
                     Object.keys(tableData[0]).map((key) => {
-                      if (key !== "_id" && key !== "__v")
+                      if (key !== "_id" && key !== "__v" && key !== "password")
                         return <th key={key}>{key.toUpperCase()}</th>;
                     })}
                   <th>Actions</th>
@@ -64,7 +64,12 @@ export default function Table({
                 {tableData?.map((row) => (
                   <tr key={row["_id"]}>
                     {Object.keys(row).map((key) => {
-                      if (key !== "_id" && key !== "__v" && key !== "image")
+                      if (
+                        key !== "_id" &&
+                        key !== "__v" &&
+                        key !== "image" &&
+                        key !== "password"
+                      )
                         return <td key={key}>{row[key]}</td>;
                       if (key === "image")
                         return (

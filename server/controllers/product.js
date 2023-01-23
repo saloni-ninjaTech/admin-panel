@@ -15,6 +15,8 @@ export const createProduct = async (req, res) => {
   const product = req.body;
   const newProduct = new ProductModel(product);
 
+  if (!req.userId) return res.json({ message: "Unauthenticated" });
+
   try {
     await newProduct.save();
     res.status(201).json(newProduct);
@@ -26,6 +28,8 @@ export const createProduct = async (req, res) => {
 export const updateProduct = async (req, res) => {
   const { id: id } = req.params;
   const product = req.body;
+  if (!req.userId) return res.json({ message: "Unauthenticated" });
+
   if (!mongoose.Types.ObjectId.isValid(id))
     return res.status(404).send("No post with that id");
 
@@ -41,6 +45,8 @@ export const updateProduct = async (req, res) => {
 
 export const deleteProduct = async (req, res) => {
   const { id: id } = req.params;
+  if (!req.userId) return res.json({ message: "Unauthenticated" });
+
   if (!mongoose.Types.ObjectId.isValid(id))
     return res.status(404).send("No post with that id");
 

@@ -10,6 +10,8 @@ import Profile from "../Profile/Profile";
 import Categories from "../Categories/Categories";
 import User from "../User/User";
 import { Empty } from "../shared/Empty";
+import Auth from "../Auth/Auth";
+import Login from "../Auth/Login";
 
 function App() {
   const dispatch = useDispatch();
@@ -27,6 +29,8 @@ function App() {
         <Route path="/categories" element={<Categories />} />
         <Route path="/profile" element={<Profile />} />
         <Route path="/user" element={<User />} />
+        <Route path="/auth" element={<Auth />} />
+        <Route path="/login" element={<Login />} />
         <Route path="*" element={<Empty />} />
       </Routes>
       <Footer />
