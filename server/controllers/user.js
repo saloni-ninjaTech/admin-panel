@@ -6,7 +6,6 @@ import jwt from "jsonwebtoken";
 export const getUser = async (req, res) => {
   try {
     const userData = await UserModel.find();
-    console.log("userData:", userData);
     res.status(200).json(userData);
   } catch (e) {
     res.status(400).json({ message: e.message });
@@ -17,7 +16,6 @@ export const getUserOne = async (req, res) => {
   const { id: id } = req.params;
   try {
     const userData = await UserModel.findOne({ _id: id });
-    console.log("userData:", userData);
     res.status(200).json(userData);
   } catch (e) {
     res.status(400).json({ message: e.message });

@@ -21,11 +21,6 @@ export default function Dashboard() {
   useEffect(() => {
     dispatch(getProducts());
     dispatch(setDisplayDashboard(true));
-    // console.log("profileUser:", localStorage.getItem("profile"));
-
-    // if (!localStorage.getItem("profile")) {
-    //   navigate("/login", { replace: true });
-    // }
   }, [dispatch]);
 
   return (

@@ -71,7 +71,6 @@ export default withFormik({
 
   handleSubmit: (values, { props }) => {
     const { createData, isUpdate, updateData } = props;
-    console.log("handle submit", createData, values);
     isUpdate ? updateData(values._id, values) : createData(values);
     window.location.reload(true);
   },

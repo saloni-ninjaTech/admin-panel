@@ -21,7 +21,6 @@ export default function Categories() {
     dispatch(setDisplayCategories(true));
   }, [dispatch]);
 
-  console.log("categories:", categories);
   if (!categoryLoaded) <div>Data not loaded!</div>;
 
   return (

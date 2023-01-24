@@ -14,7 +14,6 @@ export const getUsers = () => async (dispatch) => {
 export const getUser = (id) => async (dispatch) => {
   try {
     const { data } = await API.fetchUser(id);
-    console.log("in action");
     dispatch({ type: constants.FETCH_USER, payload: data });
   } catch (error) {
     console.log("error:", error);

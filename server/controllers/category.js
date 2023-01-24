@@ -4,7 +4,6 @@ import CategoryModel from "../models/CategoryModel.js";
 export const getCategory = async (req, res) => {
   try {
     const categoryData = await CategoryModel.find();
-    console.log("categoryData:", categoryData);
     res.status(200).json(categoryData);
   } catch (e) {
     res.status(400).json({ message: e.message });
@@ -44,7 +43,6 @@ export const updateCategory = async (req, res) => {
 
 export const deleteCategory = async (req, res) => {
   const { id: id } = req.params;
-  console.log("id:", id);
   if (!req.userId) return res.json({ message: "Unauthenticated" });
 
   if (!mongoose.Types.ObjectId.isValid(id))

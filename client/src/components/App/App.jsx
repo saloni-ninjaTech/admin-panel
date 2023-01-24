@@ -20,7 +20,6 @@ function App() {
   useEffect(() => {
     if (localStorage.getItem("profile")) {
       const id = JSON.parse(localStorage.getItem("profile")).data?._id;
-      console.log("id", id);
       dispatch(getUser(id));
     } else {
       navigate("/login", { replace: true });

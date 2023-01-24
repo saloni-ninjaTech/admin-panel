@@ -31,6 +31,5 @@ export const signup = (input, navigate) => async (dispatch) => {
 };
 
 export const logout = () => (dispatch) => {
-  console.log("in action");
   dispatch({ type: LOGOUT });
 };

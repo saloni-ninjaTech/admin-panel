@@ -18,7 +18,6 @@ export default function User() {
   const { users } = useSelector((state) => state.userReducer);
 
   useEffect(() => {
-    console.log("useeffects");
     dispatch(getUsers());
     dispatch(setDisplayUser(true));
   }, [dispatch]);

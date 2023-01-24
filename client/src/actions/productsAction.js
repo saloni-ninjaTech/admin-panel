@@ -12,8 +12,6 @@ export const getProducts = () => async (dispatch) => {
 };
 
 export const createProducts = (input) => async (dispatch) => {
-  console.log("action");
-
   try {
     const { data } = await API.createProducts(input);
     dispatch({ type: constants.CREATE_PRODUCTS, payload: data });
