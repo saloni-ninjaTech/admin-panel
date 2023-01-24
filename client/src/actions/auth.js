@@ -1,4 +1,4 @@
-import { AUTH } from "../_helpers/constants";
+import { AUTH, LOGOUT } from "../_helpers/constants";
 import * as api from "../api/index.js";
 
 export const signin = (input, navigate) => async (dispatch) => {
@@ -28,4 +28,9 @@ export const signup = (input, navigate) => async (dispatch) => {
       alert(error.response.data.message);
     }
   }
+};
+
+export const logout = () => (dispatch) => {
+  console.log("in action");
+  dispatch({ type: LOGOUT });
 };

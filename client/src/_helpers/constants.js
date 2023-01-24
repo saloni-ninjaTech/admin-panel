@@ -4,6 +4,7 @@ export const UPDATE_PRODUCTS = "UPDATE_PRODUCTS";
 export const DELETE_PRODUCTS = "DELETE_PRODUCTS";
 
 export const FETCH_USERS = "FETCH_USERS";
+export const FETCH_USER = "FETCH_USER";
 export const CREATE_USERS = "CREATE_USERS";
 export const UPDATE_USERS = "UPDATE_USERS";
 export const DELETE_USERS = "DELETE_USERS";

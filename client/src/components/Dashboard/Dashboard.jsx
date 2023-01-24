@@ -14,12 +14,18 @@ import Table from "../shared/Table";
 
 export default function Dashboard() {
   const dispatch = useDispatch();
-
-  const { products } = useSelector((state) => state.productReducer);
+  const { products /*, profileUser*/ } = useSelector(
+    (state) => state.productReducer
+  );
 
   useEffect(() => {
     dispatch(getProducts());
     dispatch(setDisplayDashboard(true));
+    // console.log("profileUser:", localStorage.getItem("profile"));
+
+    // if (!localStorage.getItem("profile")) {
+    //   navigate("/login", { replace: true });
+    // }
   }, [dispatch]);
 
   return (

@@ -2,8 +2,12 @@ import React from "react";
 import { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { setDisplayUser } from "../../actions/sharedAction";
-import { getUsers, updateUsers } from "../../actions/usersAction";
-import { createUsers, deleteUsers } from "../../api";
+import {
+  getUsers,
+  updateUsers,
+  createUsers,
+  deleteUsers,
+} from "../../actions/usersAction";
 import { DEFAULT_VALUES_USER_FORM } from "../../_helpers/constants";
 import Breadcrumb from "../shared/Breadcrumb";
 import Table from "../shared/Table";

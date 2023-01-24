@@ -11,6 +11,16 @@ export const getUsers = () => async (dispatch) => {
   }
 };
 
+export const getUser = (id) => async (dispatch) => {
+  try {
+    const { data } = await API.fetchUser(id);
+    console.log("in action");
+    dispatch({ type: constants.FETCH_USER, payload: data });
+  } catch (error) {
+    console.log("error:", error);
+  }
+};
+
 export const createUsers = (input) => async (dispatch) => {
   try {
     const { data } = await API.createUsers(input);
@@ -32,7 +42,8 @@ export const updateUsers = (id, input) => async (dispatch) => {
 export const deleteUsers = (id) => async (dispatch) => {
   try {
     const { data } = await API.deleteUsers(id);
-    dispatch({ type: constants.DELETE_USERS, payload: data });
+    alert(data);
+    getUsers();
   } catch (error) {
     console.log("error:", error);
   }

@@ -1,6 +1,5 @@
 import React, { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { bindActionCreators } from "redux";
 import {
   createCategories,
   deleteCategories,
@@ -18,11 +17,10 @@ export default function Categories() {
   );
   const dispatch = useDispatch();
   useEffect(() => {
-    dispatch(setDisplayCategories(true));
     dispatch(getCategories());
+    dispatch(setDisplayCategories(true));
   }, [dispatch]);
 
-  const bindCreateData = bindActionCreators(createCategories, dispatch);
   console.log("categories:", categories);
   if (!categoryLoaded) <div>Data not loaded!</div>;
 
@@ -47,7 +45,7 @@ export default function Categories() {
       <Table
         tableData={categories}
         defaultValues={DEFAULT_VALUES_CATEGORY_FORM}
-        createData={bindCreateData}
+        createData={createCategories}
         deleteData={deleteCategories}
         updateData={updateCategories}
       />

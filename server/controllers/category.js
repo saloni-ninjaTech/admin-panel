@@ -50,6 +50,11 @@ export const deleteCategory = async (req, res) => {
   if (!mongoose.Types.ObjectId.isValid(id))
     return res.status(404).send("No category with that id");
 
-  await CategoryModel.findByIdAndRemove(id);
-  res.json({ message: "category deleted successfully!" });
+  try {
+    await CategoryModel.findByIdAndRemove(id);
+    res.json({ message: "category deleted successfully!" });
+  } catch (error) {
+    console.log("error:", e);
+    res.status(404).json({ message: e.message });
+  }
 };

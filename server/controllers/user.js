@@ -13,6 +13,17 @@ export const getUser = async (req, res) => {
   }
 };
 
+export const getUserOne = async (req, res) => {
+  const { id: id } = req.params;
+  try {
+    const userData = await UserModel.findOne({ _id: id });
+    console.log("userData:", userData);
+    res.status(200).json(userData);
+  } catch (e) {
+    res.status(400).json({ message: e.message });
+  }
+};
+
 export const createUser = async (req, res) => {
   const user = req.body;
   const newUser = new UserModel(user);
@@ -51,8 +62,13 @@ export const deleteUser = async (req, res) => {
   if (!mongoose.Types.ObjectId.isValid(id))
     return res.status(404).send("No product with that id");
 
-  await UserModel.findByIdAndRemove(id);
-  res.json({ message: "user deleted successfully!" });
+  try {
+    await UserModel.findByIdAndRemove(id);
+    res.json({ message: "user deleted successfully!" });
+  } catch (error) {
+    console.log("error:", e);
+    res.status(404).json({ message: e.message });
+  }
 };
 
 export const signin = async (req, res) => {
@@ -73,7 +89,7 @@ export const signin = async (req, res) => {
       "test",
       { expiresIn: "1h" }
     );
-    res.status(200).json({ result: existingUser, token });
+    res.status(200).json({ data: existingUser, token });
   } catch (error) {
     res.status(500).json({ message: "Something went wrong." });
     console.log("error:", error);

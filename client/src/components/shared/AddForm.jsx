@@ -39,6 +39,7 @@ const AddForm = (props) => {
                     onChange={handleChange}
                     value={values[key]}
                     placeholder={`Enter ${key} here...`}
+                    disabled={isUpdate && key === "password" ? true : false}
                   />
                 </div>
               );

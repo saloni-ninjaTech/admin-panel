@@ -2,12 +2,14 @@ import axios from "axios";
 
 const API = axios.create({ baseURL: "http://localhost:5000" });
 
-// API.interceptors.request.use((req) => {
-//   if (localStorage.getItem("profile")) {
-//     req.headers.authorization = `Bearer ${JSON.parse(localStorage.getItem('profile')).token}`
-//   }
-//   return req;
-// })
+API.interceptors.request.use((req) => {
+  if (localStorage.getItem("profile")) {
+    req.headers.authorization = `Bearer ${
+      JSON.parse(localStorage.getItem("profile")).token
+    }`;
+  }
+  return req;
+});
 
 export const fetchProducts = () => API.get(`/products`);
 export const createProducts = (input) => API.post(`/products`, input);
@@ -15,6 +17,7 @@ export const updateProducts = (id, input) => API.put(`/products/${id}`, input);
 export const deleteProducts = (id) => API.delete(`/products/${id}`);
 
 export const fetchUsers = () => API.get(`/users`);
+export const fetchUser = (id) => API.get(`/users/${id}`);
 export const createUsers = (input) => API.post(`/users`, input);
 export const updateUsers = (id, input) => API.put(`/users/${id}`, input);
 export const deleteUsers = (id) => API.delete(`/users/${id}`);

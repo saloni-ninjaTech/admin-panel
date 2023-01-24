@@ -10,6 +10,7 @@ const defaultState = {
   categoryLoaded: false,
   userLoaded: false,
   authData: null,
+  profileUser: {},
 };
 
 export default defaultState;

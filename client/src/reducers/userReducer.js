@@ -6,6 +6,9 @@ const userReducer = (state = defaultState, action) => {
     case constants.FETCH_USERS:
       return { ...state, users: action.payload };
 
+    case constants.FETCH_USER:
+      console.log("in reducer", action.payload);
+      return { ...state, profileUser: action?.payload };
     case constants.CREATE_USERS:
       return { ...state, users: action.payload };
 
