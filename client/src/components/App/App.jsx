@@ -1,7 +1,7 @@
 import Header from "../Header/Header";
 import Dashboard from "../Dashboard/Dashboard";
 import Footer from "../Footer/Footer";
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { getUser } from "../../actions";
 import { useEffect } from "react";
 import { Route, Routes } from "react-router-dom";
@@ -16,7 +16,7 @@ import { useNavigate } from "react-router-dom";
 function App() {
   const dispatch = useDispatch();
   const navigate = useNavigate();
-
+  const { profileUser } = useSelector((state) => state.userReducer);
   useEffect(() => {
     if (localStorage.getItem("profile")) {
       const id = JSON.parse(localStorage.getItem("profile")).data?._id;
@@ -24,7 +24,7 @@ function App() {
     } else {
       navigate("/login", { replace: true });
     }
-  }, [dispatch, navigate]);
+  }, [profileUser]);
 
   return (
     <div className="wrapper">

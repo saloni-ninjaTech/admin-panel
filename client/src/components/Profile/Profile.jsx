@@ -46,7 +46,7 @@ export default function Profile() {
                   <h3 className="profile-username text-center">
                     {profileUser.name}
                   </h3>
-                  <p className="text-muted text-center">Software Engineer</p>
+                  {/* <p className="text-muted text-center">Software Engineer</p> */}
                   <ul className="list-group list-group-unbordered mb-3">
                     <li className="list-group-item">
                       <b>Contact Number:</b>{" "}
@@ -57,9 +57,9 @@ export default function Profile() {
                       <a className="float-right">{profileUser.email}</a>
                     </li>
                   </ul>
-                  <button className="btn btn-primary btn-block">
+                  {/* <button className="btn btn-primary btn-block">
                     <b>Change Password</b>
-                  </button>
+                  </button> */}
                   <button
                     className="btn btn-danger btn-block"
                     type="button"
